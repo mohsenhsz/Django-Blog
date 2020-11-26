@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <article class="media content-section">
+        <div class="media-body">
+        <h2>{{ article.title }}</h2>
+        <div class="article-metadata">
+            <small class="text-muted">{{ article.publish|date:"F d, Y" }} by <a class="mr-2" href="{% url 'index' %}">{{ post.author }}</a></small>
+        </div>
+        <p class="article-content">{{ article.content|safe }}</p>
+        </div>
+    </article>
+
+{% endblock %}
