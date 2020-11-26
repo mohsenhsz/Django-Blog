@@ -106,10 +106,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# an url for redirect user after login
-LOGIN_REDIRECT_URL = 'index'
 
-# smtp
+
+# smtp server for send reset password email
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'moh3en.hz@gmail.com'
@@ -133,6 +132,16 @@ USE_L10N = True
 USE_TZ = True
 
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'users.authentication.EmailBackend',
+ ]
+
+
+# an url for redirect user after login
+LOGIN_REDIRECT_URL = 'index'
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
@@ -141,7 +150,7 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-
+# Media files
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'
 

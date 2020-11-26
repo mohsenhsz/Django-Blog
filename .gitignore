@@ -3,6 +3,9 @@
 #Evirtual Env
 venv/
 
+#sample posts
+posts.json
+
 #database
 db.sqlite3
 

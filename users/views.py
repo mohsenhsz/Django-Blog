@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse
 from django.views.generic import FormView
 from django.contrib.auth import views as auth_views
-from users.forms import UserRegisterationForm
+from users.forms import UserRegisterationForm, CostomAuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.urls import reverse_lazy
@@ -13,10 +13,10 @@ class UserRegisteration(auth_views.FormView):
     success_url = reverse_lazy('login')
 
     def form_valid(self, form):
-        self.create_user(form.cleaned_data)
+        self.user_creation(form.cleaned_data)
         return super().form_valid(form)
 
-    def create_user(self, data):
+    def user_creation(self, data):
         user = User.objects.create_user(username=data['username'],
                                         email=data['email'],
                                         password=data['password1'], )
@@ -28,6 +28,7 @@ class UserRegisteration(auth_views.FormView):
 
 class UserLogin(auth_views.LoginView):
     template_name = 'users/login.html'
+    authentication_form = CostomAuthenticationForm
 
 
 class UserLogout(auth_views.LogoutView):
