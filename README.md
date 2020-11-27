@@ -1,2 +1,4 @@
 # Django-Blog
-A blog based on Django
+A simple blog based on Django
+# How to run  in development mode:
+1. Install python2, pip, virtualenv in your system.
