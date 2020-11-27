@@ -13,4 +13,4 @@ mv  AA/settings-sample.py AA/settings.py
 python manage.py migrate  # Create database tables
 ```
 4. Run ```AA``` using ```python3 manage.py runserver```
-5. Go to [http://localhost:8000] to see your Blog
+5. Go to [http://localhost:8000](localhost:8000) to see your Blog
